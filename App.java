@@ -1,15 +1,9 @@
-import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.DumperOptions;
-import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
-import java.util.Map;
-import java.util.*;
+import org.yaml.snakeyaml.Yaml;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.io.ByteArrayInputStream;
 
 class MySerialClass {
   private long id;
@@ -31,14 +25,13 @@ class MySerialClass {
 }
 
 public class App {
-  public static void main(String[] args) throws FileNotFoundException {
+  public static void main(String[] args) throws Exception {
     MySerialClass data = null;
 
     if(args.length == 0) {
       data = new MySerialClass(1337, "Hello!");
     } else {
       InputStream inputStream = new FileInputStream(args[0]);
-      // InputStream inputStream = new ByteArrayInputStream(body.getBytes());
       Yaml yaml = new Yaml(new Constructor(MySerialClass.class));
       data = yaml.load(inputStream);
     }
