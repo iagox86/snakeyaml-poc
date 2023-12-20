@@ -13,6 +13,11 @@ class MySerialClass {
   public MySerialClass() {
   }
 
+  public MySerialClass(Object test) {
+    this.objectField = test;
+    this.stringField = test.toString();
+  }
+
   public MySerialClass(long id, Object test) {
     this.id = id;
     this.objectField = test;
