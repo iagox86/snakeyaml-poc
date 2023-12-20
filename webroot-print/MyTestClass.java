@@ -6,6 +6,9 @@ import java.util.List;
 public class MyTestClass implements ScriptEngineFactory {
   public MyTestClass() {
     try {
+      System.out.println("Oh hey, we're executing code!");
+      System.out.println();
+
       /* Total number of processors or cores available to the JVM */
       System.out.println("Available processors (cores): " + Runtime.getRuntime().availableProcessors());
 
